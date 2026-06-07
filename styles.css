@@ -131,3 +131,23 @@ body {
   border-radius: 8px;
   margin-top: 15px;
 }
+
+.movie-card img {
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.movie-card img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+}
+
+.video-page {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.video-page a {
+  color: #ff69b4;
+  text-decoration: none;
+}
