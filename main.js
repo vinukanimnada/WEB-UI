@@ -19,3 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+const toggle = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+toggle.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
+
+// Menu එකක click කරාම mobile වල auto close
+const buttons = document.querySelectorAll(".menu button");
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      sidebar.classList.remove("open");
+    }
+  });
+});
