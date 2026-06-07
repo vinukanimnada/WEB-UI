@@ -115,5 +115,14 @@ body {
   }
 }
 
-.sidebar:not(.open) .menu::after {...}
-.sidebar.open .menu::after {...}
+.sidebar.open .menu::after {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.sidebar:not(.open) .menu::after {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
+}
