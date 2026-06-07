@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 260px;
+  height: calc(100vh - 40px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 24px 0;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin: 0 0 40px 22px;
+}
+
+.sidebar.menu {
+  position: relative;
+}
+
+.sidebar.menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -4px;
+  height: 56px;
+  width: 4px;
+  background: #6199f7;
+  transform: translateY(var(--top, 0px));
+  transition: 0.3s ease;
+}
+
+.sidebar button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  padding: 0 22px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar button:hover {
+  background: rgba(255, 255, 255, 0.04);
+  opacity: 0.9;
+}
+
+.sidebar button.active {
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 1;
+}
