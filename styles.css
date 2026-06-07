@@ -11,68 +11,6 @@ body {
   min-height: 100vh;
 }
 
-.sidebar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 260px;
-  height: calc(100vh - 40px);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 28px;
-  padding: 24px 0;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  margin: 0 0 40px 22px;
-}
-
-.sidebar.menu {
-  position: relative;
-}
-
-.sidebar.menu::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -4px;
-  height: 56px;
-  width: 4px;
-  background: #6199f7;
-  transform: translateY(var(--top, 0px));
-  transition: 0.3s ease;
-}
-
-.sidebar button {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  height: 56px;
-  width: 100%;
-  padding: 0 22px;
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  opacity: 0.6;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.sidebar button:hover {
-  background: rgba(255, 255, 255, 0.04);
-  opacity: 0.9;
-}
-
-.sidebar button.active {
-  background: rgba(255, 255, 255, 0.06);
-  opacity: 1;
-}
-
 .menu-toggle {
   position: fixed;
   top: 20px;
@@ -82,29 +20,109 @@ body {
   height: 50px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   color: #fff;
   font-size: 24px;
   cursor: pointer;
-  display: none; /* PC එකේ hide */
+  display: none;
 }
 
 .sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 260px;
+  height: calc(100vh - 40px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: 24px 0;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin: 0 0 40px 22px;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 12px;
+  position: relative;
+}
+
+.menu button {
+  width: 100%;
+  height: 56px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  text-align: left;
+  padding: 0 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.menu button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.menu button.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: calc(100% - 24px);
+  height: 56px;
+  background: #6199f7;
+  border-radius: 16px;
+  transform: translateY(var(--top, 0px));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  z-index: 1;
 }
 
 /* Mobile වලට විතරක් */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block; /* Mobile වල පෙන්නවා */
+    display: block;
   }
   
   .sidebar {
-    transform: translateX(-280px); /* මුලින් hide */
+    transform: translateX(-280px);
   }
   
   .sidebar.open {
-    transform: translateX(0); /* open උනාම එනවා */
+    transform: translateX(0);
   }
+}
+
+/* Sidebar close උනාම නිල් ඉර hide කරනවා */
+.sidebar:not(.open) .menu::after {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Sidebar open උනාම ආපහු පෙන්නවා */
+.sidebar.open .menu::after {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s;
 }
