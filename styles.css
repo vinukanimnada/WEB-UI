@@ -115,14 +115,5 @@ body {
   }
 }
 
-/* Sidebar close උනාම නිල් ඉර hide කරනවා */
-.sidebar:not(.open) .menu::after {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-/* Sidebar open උනාම ආපහු පෙන්නවා */
-.sidebar.open .menu::after {
-  opacity: 1;
-  transition: opacity 0.3s ease 0.1s;
-}
+.sidebar:not(.open) .menu::after {...}
+.sidebar.open .menu::after {...}
