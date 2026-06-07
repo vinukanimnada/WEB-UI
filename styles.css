@@ -151,3 +151,23 @@ body {
   color: #ff69b4;
   text-decoration: none;
 }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* screen එකෙන් වම් පැත්තට හංගනවා */
+  width: 250px;
+  height: 100%;
+  background: #1a1a1a;
+  transition: 0.3s;
+}
+/* Screen එක 1024px ට වඩා ලොකු නම් */
+@media (min-width: 1024px) {
+  .sidebar {
+    left: -250px; /* PC එකේත් hide */
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+}
