@@ -126,3 +126,8 @@ body {
   color: rgba(255, 255, 255, 0.6);
   font-weight: 400;
 }
+
+.movie-card video {
+  border-radius: 8px;
+  margin-top: 15px;
+}
