@@ -121,8 +121,8 @@ body {
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.sidebar:not(.open) .menu::after {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s ease 0.1s, visibility 0.3s ease 0.1s;
+.sidebar.open .menu button.active {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
 }
