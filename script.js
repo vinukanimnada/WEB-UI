@@ -1,4 +1,4 @@
-// main.js
+// script.js
 document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.querySelector(".sidebar");
   if (!sidebar) return;
